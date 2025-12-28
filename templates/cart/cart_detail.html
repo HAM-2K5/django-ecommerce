@@ -38,6 +38,10 @@
     </table>
 
     <h4>Total: ₹{{ cart.get_total_price }}</h4>
+    <a href="/orders/checkout/" class="btn btn-success mt-3">
+    Proceed to Checkout
+    </a>
+
 
     {% else %}
         <p>Your cart is empty.</p>
