@@ -7,7 +7,9 @@ class OrderItemInline(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'created_at', 'paid')
+    list_display = ('id', 'user', 'created_at', 'paid','status')
     list_filter = ('paid', 'created_at')
     inlines = [OrderItemInline]
+    search_fields = ('user__username', 'id')
+    list_per_page = 10
 

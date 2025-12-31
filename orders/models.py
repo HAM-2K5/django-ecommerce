@@ -9,6 +9,17 @@ class Order(models.Model):
     phone = models.CharField(max_length=15)
     created_at = models.DateTimeField(auto_now_add=True)
     paid = models.BooleanField(default=False)
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('paid', 'Paid'),
+        ('shipped', 'Shipped'),
+    ]
+
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default='pending'
+    )
 
     def __str__(self):
         return f"Order #{self.id}"

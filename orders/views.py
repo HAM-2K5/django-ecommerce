@@ -28,7 +28,10 @@ def checkout(request):
                 price=item['price'],
                 quantity=item['quantity']
             )
-
+            
+            product = item['product']
+            product.stock -= item['quantity']
+            product.save()
         cart.clear()
         return redirect('dummy_payment', order_id=order.id)
 

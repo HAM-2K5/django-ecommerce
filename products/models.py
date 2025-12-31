@@ -23,5 +23,11 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    def low_stock(self):
+        return self.stock < 5
+
+    low_stock.boolean = True
+    low_stock.short_description = 'Low Stock'
+
 
 
